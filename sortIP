@@ -1,0 +1,16 @@
+#!/usr/bin/python3
+
+def ip_to_tuple(ip_str):
+   ip = ip_str.split(':')[0] #remove port
+   ip = ip.split('.') #make a list
+   return tuple(map(int, ip)) # convert to int
+
+def main():
+    ## unsorted list of IPs
+    mylistIP = ['192.168.9.1', '8.8.8.8:22', '10.0.2.1', '88.8.8.8', '1.1.1.1']
+    
+    ## call the sorted function on mylistIP, but pass our function as the sort key
+    print(sorted(mylistIP, key=ip_to_tuple))
+
+if __name__ == "__main__":
+    main()
